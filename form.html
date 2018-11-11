@@ -109,6 +109,27 @@
                 localStorage.setItem("Sunday", sum.toString());
                 localStorage.setItem("day", "0");
             }
+            if (sum <= localStorage.getItem("budget")) {
+                var streak = parseInt(localStorage.getItem("streak"));
+                if (streak >=0) {
+                    streak = streak + 1;
+                    localStorage.setItem("streak", streak.toString());
+                }
+                else {
+                    localStorage.setItem("streak", "0");
+                }
+                
+            }
+            else {
+                var streak = parseInt(localStorage.getItem("streak"));
+                if (streak <=0) {
+                    streak = streak - 1;
+                    localStorage.setItem("streak", streak.toString());
+                }
+                else {
+                    localStorage.setItem("streak", "0");
+                }
+            }
             location.href="dashboard.html";
         };
     </script>
