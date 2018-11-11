@@ -36,44 +36,69 @@
 			<img src="https://theenterprise.net/wp-content/uploads/2017/12/food_icon_1513792355.png" alt="Transportation icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; margin-top: 20px;">Food</b><br>
-			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
+			<input id="food" type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
 	
 		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
 			<img src="https://image.flaticon.com/icons/svg/172/172142.svg" alt="Transportation icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; margin-top: 20px;">Transportation</b><br>
-			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
+			<input id="transportation" type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
 		
 		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
 			<img src="https://www.svgrepo.com/show/230362/invoice-bill.svg" alt="Bill icon" height="200px" width="200px">
 			<br>
 	 		<b style="text-align: center; margin-top: 20px;">Bill</b><br>
-			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
+			<input id="bill" type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
 		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
 			<img src="https://image.flaticon.com/icons/svg/230/230403.svg" alt="Entertainment icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; padding-top: 50px; margin-top: 20px;">Entertainment</b><br>
-			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
+			<input id="entertainment" type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
 		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
 			<img src="https://image.flaticon.com/icons/svg/1205/1205047.svg" alt="Groceries icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; padding-top: 50px; margin-top: 20px;">Groceries</b><br>
-			<input type="number" step="0.01" value="0"  style="margin-top: 20px;">
+			<input id="groceries" type="number" step="0.01" value="0"  style="margin-top: 20px;">
 		</div>
 		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
 			<img src="https://image.flaticon.com/icons/svg/237/237188.svg" alt="Other icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; padding-top: 50px; margin-top: 20px;">Other</b><br>
-			<input type="number" step="0.01" value="0"  style="margin-top: 20px;">
+			<input id="other" type="number" step="0.01" value="0"  style="margin-top: 20px;">
 		</div>		
 	</div>
+    
+    
 	<div class="col-lg-12" style="text-align:center;">
-        <a href="dashboard.html" type="button" class="btn btn-secondary btn-lg" style="margin-top: 40px">Submit</a>
+        <a id="submit" class="btn btn-secondary btn-lg" style="margin-top: 40px">Submit</a>
 	</div>
+    
+    <script type="text/javascript">
+        document.getElementById("submit").onclick = function () {
+            console.log(localStorage.getItem("day"));
+            var daynum = parseInt(localStorage.getItem("day"))+1;
+            localStorage.setItem("day", daynum.toString());
+            console.log(localStorage.getItem("day"));
+            
+            var sum = parseInt(document.getElementById('food').value) + parseInt(document.getElementById('transportation').value) + parseInt(document.getElementById('entertainment').value) + parseInt(document.getElementById('bill').value) + parseInt(document.getElementById('groceries').value) + parseInt(document.getElementById('other').value);
+            
+            var day = localStorage.getItem("day");
+            if (day === "5") {
+                localStorage.setItem("Friday", sum.toString());
+            }
+            else if (day === "6") {
+                localStorage.setItem("Saturday", sum.toString());
+            }
+            else {
+                localStorage.setItem("Sunday", sum.toString());
+            }
+            location.href="dashboard.html";
+        };
+    </script>
 	
 </body>
 </html>
