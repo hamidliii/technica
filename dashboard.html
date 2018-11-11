@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+          google.charts.setOnLoadCallback(drawChart2);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Day", "Spending", { role: "style" } ],
+        ["Monday", 10, "#DEFFFC"],
+        ["Tuesday", 20.2, "#99E1D9"],
+        ["Wednesday", 14.2, "#F0F7F4"],
+        ["Thursday", 0, "#70ABAF"],
+        ["Friday", 0, "#705D56"],
+        ["Saturday", 0, "#F4F1BB"],
+        ["Sunday", 0, "#ED6A5A"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Total Spending By Day",
+        width: 1000,
+        height: 400,
+        bar: {groupWidth: "70%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+    }
+    function drawChart2() {
+      var data = google.visualization.arrayToDataTable([
+         
+          ['Total', 'Money'],
+          ['Spent', 44.4],
+          ['Balance',  120]    
+        ]);
+
+        var options = {
+          title: 'My Balance',
+          pieHole: 0.4,
+          slices: {
+            0: { color: "#f7a8c9" },
+            1: { color: "#9adfea" }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+  </script>
+
+  </head>
+  <body>
+  	<div class="w3-container w3-card" style="margin-bottom: 40px;">
+	  <h1 style="text-align: center;">Weekly Financial Dashboard</h1>
+	</div>
+    <div id="columnchart_values" style="width: 850px; height: 400px; text-align: center" class="col-lg-8"></div>
+    <div id="piechart" style="width: 450px; height: 400px; text-align: center" class="col-lg-4"></div>
+
+	<div style="text-align: center">	
+        <a href="form.html" class="btn btn-warning btn-lg" style="margin-right: 30px;">Input new expense</a>
+        <a href="profile.html" class="btn btn-primary btn-lg">Edit Income & Budget</a>
+	</div>
+  </body>
+</html>
