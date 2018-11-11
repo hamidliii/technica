@@ -6,14 +6,15 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>	
-	.focus{	
-	 transition: opacity .2s ease-in-out;
-	    opacity : 0.2;
+	.other:hover > .focus {
+	  transition: opacity .2s ease-in-out;
+	  opacity: 0.4;
+	}
+	.other:hover > .focus:hover {
+	  opacity: 1.0;
 	}
 	
-	.other:hover .focus{
-	    opacity: 1;
-	}
+
 	.btn:hover {
 		background-color: #696969;
 		color: white;
@@ -29,42 +30,42 @@
 	<div class="w3-container w3-card">
 	  <h1 style="text-align: center; padding-bottom: 20px;">Input your weekly budget!</h1>
 	</div>
-	<div style="font-size: 16px; text-align:center;">	
+	<div class="other" style="font-size: 16px; text-align:center;">	
 	
-		<div class="col-lg-2 other" style="text-align: center; padding-top: 100px;">
-			<img class="focus" src="https://theenterprise.net/wp-content/uploads/2017/12/food_icon_1513792355.png" alt="Transportation icon" height="200px" width="200px">
+		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
+			<img src="https://theenterprise.net/wp-content/uploads/2017/12/food_icon_1513792355.png" alt="Transportation icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; margin-top: 20px;">Food</b><br>
 			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
 	
-		<div class="col-lg-2 other" style="text-align: center; padding-top: 100px;">
-			<img class="focus" src="https://image.flaticon.com/icons/svg/172/172142.svg" alt="Transportation icon" height="200px" width="200px">
+		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
+			<img src="https://image.flaticon.com/icons/svg/172/172142.svg" alt="Transportation icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; margin-top: 20px;">Transportation</b><br>
 			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
 		
-		<div class="col-lg-2 other" style="text-align: center; padding-top: 100px;">
-			<img class="focus" src="https://www.svgrepo.com/show/230362/invoice-bill.svg" alt="Bill icon" height="200px" width="200px">
+		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
+			<img src="https://www.svgrepo.com/show/230362/invoice-bill.svg" alt="Bill icon" height="200px" width="200px">
 			<br>
 	 		<b style="text-align: center; margin-top: 20px;">Bill</b><br>
 			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
-		<div class="col-lg-2 other" style="text-align: center; padding-top: 100px;">
-			<img class="focus" src="https://image.flaticon.com/icons/svg/230/230403.svg" alt="Entertainment icon" height="200px" width="200px">
+		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
+			<img src="https://image.flaticon.com/icons/svg/230/230403.svg" alt="Entertainment icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; padding-top: 50px; margin-top: 20px;">Entertainment</b><br>
 			<input type="number" step="0.01" value="0" style="margin-top: 20px;">
 		</div>
-		<div class="col-lg-2 other" style="text-align: center; padding-top: 100px;">
-			<img class="focus" src="https://image.flaticon.com/icons/svg/1205/1205047.svg" alt="Groceries icon" height="200px" width="200px">
+		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
+			<img src="https://image.flaticon.com/icons/svg/1205/1205047.svg" alt="Groceries icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; padding-top: 50px; margin-top: 20px;">Groceries</b><br>
 			<input type="number" step="0.01" value="0"  style="margin-top: 20px;">
 		</div>
-		<div class="col-lg-2 other" style="text-align: center; padding-top: 100px;">
-			<img class="focus" src="https://image.flaticon.com/icons/svg/237/237188.svg" alt="Other icon" height="200px" width="200px">
+		<div class="col-lg-2 focus" style="text-align: center; padding-top: 100px;">
+			<img src="https://image.flaticon.com/icons/svg/237/237188.svg" alt="Other icon" height="200px" width="200px">
 			<br>
 			<b style="text-align: center; padding-top: 50px; margin-top: 20px;">Other</b><br>
 			<input type="number" step="0.01" value="0"  style="margin-top: 20px;">
