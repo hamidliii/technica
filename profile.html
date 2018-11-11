@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
-body {
-  font-family: 'Lato', sans-serif;
-  text-align: center;
-  
-}
+    body {
+      font-family: 'Lato', sans-serif;
+      text-align: center;
+
+    }
   </style>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,9 +44,12 @@ body {
     
     <script type="text/javascript">
         document.getElementById("submit").onclick = function () {
-            localStorage.setItem("income", document.getElementById('income').value);
-            localStorage.setItem("budget", document.getElementById('budget').value);
-            location.href="dashboard.html";
+            if (parseInt(document.getElementById('income').value) > 0 && parseInt(document.getElementById('budget').value) > 0) {
+                localStorage.setItem("income", document.getElementById('income').value);
+                localStorage.setItem("budget", document.getElementById('budget').value);
+                location.href="dashboard.html";
+            } 
+            
         };
     </script>
     

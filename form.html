@@ -87,7 +87,19 @@
             var sum = parseInt(document.getElementById('food').value) + parseInt(document.getElementById('transportation').value) + parseInt(document.getElementById('entertainment').value) + parseInt(document.getElementById('bill').value) + parseInt(document.getElementById('groceries').value) + parseInt(document.getElementById('other').value);
             
             var day = localStorage.getItem("day");
-            if (day === "5") {
+            if (day === "1") {
+                localStorage.setItem("Monday", sum.toString());
+            }
+            else if (day === "2") {
+                localStorage.setItem("Tuesday", sum.toString());
+            }
+            else if (day === "3") {
+                localStorage.setItem("Wednesday", sum.toString());
+            }
+            else if (day === "4") {
+                localStorage.setItem("Thursday", sum.toString());
+            }
+            else if (day === "5") {
                 localStorage.setItem("Friday", sum.toString());
             }
             else if (day === "6") {
@@ -95,6 +107,7 @@
             }
             else {
                 localStorage.setItem("Sunday", sum.toString());
+                localStorage.setItem("day", "0");
             }
             location.href="dashboard.html";
         };

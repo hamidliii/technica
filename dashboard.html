@@ -14,7 +14,7 @@
 	</div>
     <div class="col-lg-8" style="text-align: center">
       <div id="columnchart_values" style="width: 850px; height: 400px; text-align: center"></div>
-      <a href="form.html" class="btn btn-warning btn-lg" style="margin-right: 30px;">Input new expense</a>
+      <a href="form.html" class="btn btn-warning btn-lg" >Input Today's Expense</a>
     </div>
     <div class="col-lg-4" style="text-align: left">
         <div id="piechart" style="width: 450px; height: 300px; text-align: center"></div>
@@ -38,7 +38,7 @@
 
         var sum = parseFloat(localStorage.getItem("Monday")) + parseFloat(localStorage.getItem("Tuesday")) + parseFloat(localStorage.getItem("Wednesday")) + parseFloat(localStorage.getItem("Thursday")) + parseFloat(localStorage.getItem("Friday")) + parseFloat(localStorage.getItem("Saturday")) + parseFloat(localStorage.getItem("Sunday"));
 
-          if (sum > parseFloat(localStorage.getItem("budget"))*7) {
+          if (sum >= parseFloat(localStorage.getItem("budget"))*7) {
               document.getElementById("piechart").innerHTML = "Oh no, you exceeded your weekly budget!";
           }
           else {
@@ -47,15 +47,61 @@
 
 
         function drawChart() {
+            var goodcolor = "#15ffa0";
+            var badcolor = "ED6A5A";
+            if (parseFloat(localStorage.getItem("Monday")) <= localStorage.getItem("budget")) {
+                color1 = goodcolor;
+            }
+            else {
+                color1 = badcolor;
+            }
+            if (parseFloat(localStorage.getItem("Tuesday")) <= localStorage.getItem("budget")) {
+                color2 = goodcolor;
+            }
+            else {
+                color2 = badcolor;
+            }
+            if (parseFloat(localStorage.getItem("Wednesday")) <= localStorage.getItem("budget")) {
+                color3 = goodcolor;
+            }
+            else {
+                color3 = badcolor;
+            }
+            if (parseFloat(localStorage.getItem("Thursday")) <= localStorage.getItem("budget")) {
+                color4 = goodcolor;
+            }
+            else {
+                color4 = badcolor;
+            }
+            if (parseFloat(localStorage.getItem("Friday")) <= localStorage.getItem("budget")) {
+                color5 = goodcolor;
+            }
+            else {
+                color5 = badcolor;
+            }
+            if (parseFloat(localStorage.getItem("Saturday")) <= localStorage.getItem("budget")) {
+                color6 = goodcolor;
+            }
+            else {
+                color6 = badcolor;
+            }
+            if (parseFloat(localStorage.getItem("Sunday")) <= localStorage.getItem("budget")) {
+                color7 = goodcolor;
+            }
+            else {
+                color7 = badcolor;
+            }
+            
+            
           var data = google.visualization.arrayToDataTable([
             ["Day", "Spending", { role: "style" } ],
-            ["Monday", parseFloat(localStorage.getItem("Monday")), "#DEFFFC"],
-            ["Tuesday", parseFloat(localStorage.getItem("Tuesday")), "#99E1D9"],
-            ["Wednesday", parseFloat(localStorage.getItem("Wednesday")), "#F0F7F4"],
-            ["Thursday", parseFloat(localStorage.getItem("Thursday")), "#70ABAF"],
-            ["Friday", parseFloat(localStorage.getItem("Friday")), "#705D56"],
-            ["Saturday", parseFloat(localStorage.getItem("Saturday")), "#F4F1BB"],
-            ["Sunday", parseFloat(localStorage.getItem("Sunday")), "#ED6A5A"]
+            ["Monday", parseFloat(localStorage.getItem("Monday")), color1],
+            ["Tuesday", parseFloat(localStorage.getItem("Tuesday")), color2],
+            ["Wednesday", parseFloat(localStorage.getItem("Wednesday")), color3],
+            ["Thursday", parseFloat(localStorage.getItem("Thursday")), color4],
+            ["Friday", parseFloat(localStorage.getItem("Friday")), color5],
+            ["Saturday", parseFloat(localStorage.getItem("Saturday")), color6],
+            ["Sunday", parseFloat(localStorage.getItem("Sunday")), color7]
           ]);
 
           var view = new google.visualization.DataView(data);
@@ -67,7 +113,7 @@
                            2]);
 
           var options = {
-            title: "Total Spending By Day",
+            title: "Expenditure By Day",
             width: 1000,
             height: 400,
             bar: {groupWidth: "70%"},
@@ -104,7 +150,7 @@
             var chartArea = layout.getChartAreaBoundingBox();
             var svg = chart.getContainer().getElementsByTagName('svg')[0];
             var yLoc = layout.getYLocation(value)
-            svg.appendChild(createLine(chartArea.left, yLoc, chartArea.left + chartArea.width, yLoc,'#00cccc',2)); // axis line 
+            svg.appendChild(createLine(chartArea.left, yLoc, chartArea.left + chartArea.width, yLoc,'	#e50202',2)); // axis line 
         }
 
         function createLine(x1, y1, x2, y2, color, w) {
